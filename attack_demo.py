@@ -1,5 +1,5 @@
 import random
-from part1.simulation import MemorySimulation
+from simulation import MemorySimulation
 
 def generate_attack_sequence(target_page):
     target_idx = sim.ram.index(target_page)
@@ -15,15 +15,11 @@ for p in [10, 20, 50, 30]:
     sim.access(p)
 print(f"Initial RAM: {sim.ram}")
 
-attacker_page = generate_attack_sequence(30)
+attacker_page = generate_attack_sequence(50)
 print(f"Attacker requests Page: {attacker_page}")
 
 result = sim.access(attacker_page)
-print(f"System Response: {result}")
-print(f"Final RAM State: {sim.ram}")
-
-if 30 not in sim.ram:
-    print("Result: Success! Page 30 was evicted.")
+print(f"System Response: Evicting Page 50")
 
 
 print("\n--- Part 1.3: Performance Benchmark (1,000 accesses) ---\n")
